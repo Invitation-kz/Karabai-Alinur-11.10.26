@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Амангелді 70 жас мерей тойына шақыру!" />
+        <meta property="og:description" content="17.10.2026" />
+        <meta property="og:image" content="https://raw.githubusercontent.com/Invitation-kz/70age-Amangeldy-17.10.26/main/photo.jpg" />
+        <title>Амангелді 70 жас мерей тойына шақыру!</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Piazzolla:wght@100&display=swap" rel="stylesheet" />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="css.css" />
+
+        <style>
+            body {
+                background-color: #f4f4f4;
+                margin: 0;
+            }
+
+            @media screen and (max-width: 1280px) {
+                div.contentblock {
+                    width: 1200px;
+                }
+            }
+            @media screen and (max-width: 1140px) {
+                div.contentblock {
+                    width: 1024px;
+                }
+            }
+            @media screen and (max-width: 992px) {
+                div.contentblock {
+                    width: 970px;
+                }
+            }
+
+            .element-animation {
+                top: 0px;
+                opacity: 0;
+                position: relative;
+            }
+            .element-animation.element-show {
+                position: relative;
+                top: 20px;
+                opacity: 1;
+                transition-duration: 1.4s;
+            }
+
+            /* ===== Стили формы из второго файла ===== */
+            .form-inner {
+                position: relative;
+            }
+            .form-inner label {
+                display: block;
+                padding-left: 15px;
+                font-family: 'Roboto', sans-serif;
+                color: rgba(255, 255, 255, .6);
+                text-transform: uppercase;
+                font-size: 15px;
+                padding: 0 15px;
+                margin: 10px 0 15px;
+            }
+            .btn {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                transition: transform 0.3s ease;
+            }
+            .btn:hover {
+                transform: scale(1.1);
+            }
+            .form-inner textarea {
+                width: 80%;
+                text-align: center;
+                margin-top: 5px;
+                border-radius: 10px;
+                margin-bottom: 0px;
+                font-size: 16px;
+                font-weight: 300;
+                background-color: #F4F4F4;
+                border-color: #1d3f57 0.5px;
+                letter-spacing: 0.11em;
+                height: 30px;
+                font-family: 'Roboto', sans-serif;
+                resize: none;
+            }
+            .form-inner input[type="submit"] {
+                background: linear-gradient(to top left, #4A6C6B 0%, #4A6C6B 100%);
+                width: 80%;
+                height: 30px;
+                text-align: center;
+                border: 0;
+                border-bottom: 2px #aaa;
+                border-radius: 10px;
+                font-size: 16px;
+                font-weight: 400;
+                background-color: #EFEFEF;
+                letter-spacing: 0.11em;
+                font-family: 'Roboto', sans-serif;
+                padding: 0 10px;
+                margin: 10px 0 1px;
+                color: white;
+            }
+            .radio-group {
+                text-align: left;
+                width: 80%;
+                font-size: 20px;
+                margin-top: 1px;
+                margin-bottom: 10px;
+                color: #000000;
+            }
+            .radio-group label {
+                display: inline;
+                padding: 0;
+                margin: 0 0 0 5px;
+                font-size: 18px;
+                color: #000;
+                text-transform: none;
+            }
+            .radio-group input[type="radio"] {
+                vertical-align: middle;
+                accent-color: #8a8a8a;
+                margin-right: 8px;
+            }
+            /* ===== Конец стилей формы ===== */
+
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition:
+                    opacity 1s ease-out,
+                    transform 1s ease-out;
+            }
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .modal {
+                display: block;
+                position: fixed;
+                z-index: 9999;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+            .modal-content {
+                background-color: #f4f4f4;
+                margin: 30% auto;
+                padding: 30px 20px;
+                border-radius: 16px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+                width: 80%;
+                text-align: center;
+            }
+            .kk {
+                width: 100%;
+                height: 100%;
+            }
+            #playMusic {
+                padding: 12px 32px;
+                font-family: "Roboto", sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                letter-spacing: 0.11em;
+                color: #fff;
+                cursor: pointer;
+                background: linear-gradient(to top left, #69968d 0%, #7fada3 100%);
+                border: none;
+                border-radius: 30px;
+                box-shadow: 0 4px 12px rgba(105, 150, 141, 0.45);
+                transition:
+                    transform 0.25s ease,
+                    box-shadow 0.25s ease;
+            }
+            #playMusic:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 16px rgba(105, 150, 141, 0.55);
+            }
+            #playMusic:active {
+                transform: scale(0.97);
+                box-shadow: 0 2px 8px rgba(105, 150, 141, 0.4);
+            }
+            body.modal-open {
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="fade-in" id="content">
+            <img src="photo1.jpg" style="width: 100%; height: 100%" loading="eager" />
+        </div>
+
+        <center>
+            <div class="element-animation">
+                <img src="photo2.jpg" style="width: 100%; margin-top: 50px" />
+            </div>
+        </center>
+
+        <center>
+            <div class="element-animation">
+                <img src="photo3.jpg" style="width: 100%; margin-top: 80px" />
+            </div>
+        </center>
+
+        <img src="photo4.jpg" style="width: 100%; margin-top: 80px" />
+
+        <center>
+            <div class="element-animation">
+                <a href="https://2gis.kz/atyrau/geo/70000001035515493/51.878199,47.067151">
+                    <img src="photo5.jpg" style="width: 100%; margin-top: 20px; margin-bottom: 0px" />
+                </a>
+            </div>
+        </center>
+
+        <center>
+            <div class="element-animation">
+                <img src="photo6.jpg" style="width: 100%; margin-top: 50px; margin-bottom: 20px" />
+            </div>
+        </center>
+
+        <!-- НОВАЯ ФОРМА (взята из второго файла) -->
+        <center style="margin-top: 0px;">
+            <form class="transparent" method="post" id="form">
+                <div class="form-inner">
+                    <div class="radio-group" required>
+                        <input type="radio" id="question1_yes" name="name" value="Иә барамын" required>
+                        <label for="question1_yes">Иә барамын</label><br>
+                        <input type="radio" id="question1_yes" name="name" value="Жұбайыммен барамын" required>
+                        <label for="question1_yes">Жұбайыммен барамын</label><br>
+                        <input type="radio" id="question1_no" name="name" value="Бара алмаймын" required>
+                        <label for="question1_no">Бара алмаймын</label>
+                    </div>
+                    <textarea
+                        required
+                        name="message"
+                        maxlength="100"
+                        id="message"
+                        cols="30"
+                        rows="4"
+                        placeholder="Есіміңізді жазыңыз"
+                    ></textarea>
+                    <input type="submit" value="Жіберу" style="color:white;" class="btn">
+                </div>
+            </form>
+        </center>
+        <!-- КОНЕЦ НОВОЙ ФОРМЫ -->
+
+        <img src="photo7.jpg" style="width: 100%; margin-top: 80px" />
+
+        <!-- Модальное окно -->
+        <div id="musicModal" class="modal">
+            <div class="modal-content">
+                <img src="photo.jpg" />
+                <button id="playMusic">Шақыртуды ашу</button>
+            </div>
+        </div>
+
+        <audio id="backgroundMusic" loop>
+            <source src="music.mp3" type="audio/mpeg" />
+            Ваш браузер не поддерживает воспроизведение музыки.
+        </audio>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+
+        <script>
+            // Модальное окно с музыкой
+            var modal = document.getElementById("musicModal");
+            var playButton = document.getElementById("playMusic");
+            var audio = document.getElementById("backgroundMusic");
+
+            playButton.onclick = function () {
+                audio.play();
+                closeModal();
+            };
+
+            function closeModal() {
+                modal.style.display = "none";
+                document.body.classList.remove("modal-open");
+            }
+        </script>
+
+        <script>
+            // Плавное появление блоков при скролле
+            document.addEventListener("DOMContentLoaded", function () {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                document.querySelectorAll(".fade-in").forEach(function (element) {
+                    observer.observe(element);
+                });
+
+                var options = { threshold: [0.5] };
+                var animObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (change) {
+                        if (change.isIntersecting) {
+                            change.target.classList.add("element-show");
+                        }
+                    });
+                }, options);
+
+                document.querySelectorAll(".element-animation").forEach(function (elm) {
+                    animObserver.observe(elm);
+                });
+            });
+        </script>
+
+        <script>
+            // ===== НОВЫЙ СКРИПТ ОТПРАВКИ (из второго файла с исправлениями) =====
+            const URL_APP = "https://script.google.com/macros/s/AKfycbyhjZt7SIrx7pNo3qMmSW9-A_WzdNPkwKFDa1enPlvM5Xw8AyoUX_6ToeEujsnmX_6Syg/exec";
+            const form = document.querySelector("#form");
+            form.action = URL_APP;
+
+            form.addEventListener("submit", function (ev) {
+              ev.preventDefault();
+
+              var name = document.querySelector("[name=name]:checked");
+              var message = document.querySelector("[name=message]");
+
+              if (!name || !message.value.trim()) {
+                alert("Барлық өрістерді толтырыңыз!");
+                return;
+              }
+
+              var details = {
+                name: name.value,
+                message: message.value.trim()
+              };
+
+              // Отправка без ожидания ответа
+              fetch(URL_APP, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+                mode: "no-cors",
+                body: Object.entries(details)
+                  .map(([key, val]) => `${encodeURIComponent(key)}=${encodeURIComponent(val)}`)
+                  .join("&")
+              }).catch(function (err) { console.error('Error:', err); });
+            
+              // Очистка и уведомление сразу
+              if (name) name.checked = false;
+              message.value = '';
+              alert('Жауабыңызға рахмет!');
+            });
+        </script>
+    </body>
+</html>
